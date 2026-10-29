@@ -1,0 +1,14 @@
+.env
+**/.env
+venv/
+**/venv/
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+CodeAlpha_MusicGeneration/models/training_data.pkl
+
+CodeAlpha_MusicGeneration/dataset/
+CodeAlpha_MusicGeneration/generated_music/

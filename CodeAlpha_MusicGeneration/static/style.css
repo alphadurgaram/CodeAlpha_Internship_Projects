@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(ellipse at top, #30205f 0%, transparent 55%),
+        linear-gradient(135deg, #090914, #151027 60%, #090914);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.container {
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
+}
+
+.tag {
+    color: #b8a2ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(38px, 7vw, 66px);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    background: linear-gradient(90deg, #ffffff, #b9a1ff, #e1aaff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 18px;
+}
+
+.subtitle {
+    color: #aaa5c3;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 42px;
+}
+
+.panel {
+    background: rgba(25, 21, 48, 0.88);
+    border: 1px solid rgba(181, 153, 255, 0.22);
+    border-radius: 24px;
+    padding: 34px;
+    text-align: left;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+label {
+    display: block;
+    color: #e6e0ff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #494064;
+    background: #100d20;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    margin-bottom: 22px;
+}
+
+select:focus {
+    border-color: #ad8bff;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #7955ed, #a45cf4);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+#status {
+    color: #c9baff;
+    margin-top: 22px;
+    line-height: 1.6;
+}
+
+#result {
+    color: #e4def9;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+.download {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 12px 20px;
+    border: 1px solid #a78bfa;
+    border-radius: 10px;
+    color: #d9ccff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.download:hover {
+    background: rgba(167, 139, 250, 0.12);
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 16px;
+    }
+
+    .panel {
+        padding: 23px;
+    }
+
+    .subtitle {
+        margin-bottom: 28px;
+    }
+}

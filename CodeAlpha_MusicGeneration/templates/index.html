@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='music-icon.svg') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Music Studio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <p class="tag">CODEALPHA • TASK 3</p>
+        <h1>AI Music Studio</h1>
+        <p class="subtitle">Create a fresh melody with your chosen mood.</p>
+
+        <section class="panel">
+            <label for="style">Choose your music style</label>
+            <select id="style">
+                <option value="Energetic">Energetic</option>
+                <option value="Calm">Calm</option>
+                <option value="Happy">Happy</option>
+                <option value="Dark">Dark</option>
+            </select>
+
+            <button id="generateBtn" onclick="generateMusic()">
+                Generate Melody
+            </button>
+
+            <p id="status" aria-live="polite"></p>
+            <div id="result"></div>
+        </section>
+    </main>
+
+    <script>
+        async function generateMusic() {
+            const button = document.getElementById("generateBtn");
+            const status = document.getElementById("status");
+            const result = document.getElementById("result");
+            const style = document.getElementById("style").value;
+
+            button.disabled = true;
+            status.textContent = "Creating your melody...";
+            result.innerHTML = "";
+
+            try {
+                const response = await fetch("/generate", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({style})
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || "Generation failed.");
+                }
+
+                status.textContent = data.message;
+                result.innerHTML = `
+                    <p><strong>Style:</strong> ${data.style}</p>
+                    <p><strong>Tempo:</strong> ${data.bpm} BPM</p>
+                    <a class="download" href="${data.file}" download>
+                        Download MIDI
+                    </a>`;
+            } catch (error) {
+                status.textContent = error.message;
+            } finally {
+                button.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

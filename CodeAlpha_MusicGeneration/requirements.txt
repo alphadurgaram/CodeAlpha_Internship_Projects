@@ -1,0 +1,6 @@
+Flask
+numpy
+music21
+mido
+tensorflow
+pretty_midi
